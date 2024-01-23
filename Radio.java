@@ -1,10 +1,12 @@
 public class Radio implements IRadio {
-
+    //Atributos
     private boolean powerState;  // On or off
     private boolean isAM;        // AM or FM
     private float currentFrequency;  // Current frequency
     private float[] favFrequencies;  // Array to store favorite frequencies
-
+    /**
+     * Constructor Radio donde se les asigna valores a los atributos de la clase
+     */
     public Radio() {
         powerState = false;
         isAM = true;  // Default to AM
@@ -14,7 +16,9 @@ public class Radio implements IRadio {
     public boolean getState() {
         return powerState;
     }
-
+    /**
+     * Enciende y apaga el radio
+     */
     @Override
     public void tooglePowerOffOn() {
         powerState = !powerState;
@@ -24,6 +28,9 @@ public class Radio implements IRadio {
             currentFrequency = 530.0f;
         }
     }
+    /**
+     * Cambia de frecuencia el radio
+     */
     @Override
     public void toogleAMFM() {
         isAM = !isAM;
@@ -35,12 +42,17 @@ public class Radio implements IRadio {
             currentFrequency = 87.9f;
         }
     }
-
+/**
+ *@return booleano
+ *Se obtiene el valor de la frecuencia actual
+ */
 @Override
     public boolean getStateAMFM() {
         return isAM;
     }
-
+/**
+ * Cambia a la siguiente emisora
+ */
 @Override
     public void nextFrequency() {
         if (isAM) {
@@ -57,7 +69,9 @@ public class Radio implements IRadio {
             }
         }
     }
-
+/**
+ * Cambia a la frecuencia previa
+ */
 @Override
     public void previousFrequency() {
         if (isAM) {
@@ -74,19 +88,27 @@ public class Radio implements IRadio {
             }
         }
     }
-
+/**
+ * @return Regresa la frecuencia actual
+ * Muestra el valor actual de la frecuencia
+ */
 @Override
     public float getCurrentFrequency() {
         return currentFrequency;
     }
-
+/**
+ * Agrega a un boton la frecuencia favorita
+ */
 @Override
     public void setFavFrequency(int button) {
         if (button >= 1 && button <= 12) {
             favFrequencies[button - 1] = currentFrequency;
         }
     }
-
+/**
+ * @return valor float de la frecuencia configurada
+ * Obtiene el valor actual de uno de los botones
+ */
 @Override
     public float getFavFrequency(int button) {
         if (button >= 1 && button <= 12) {

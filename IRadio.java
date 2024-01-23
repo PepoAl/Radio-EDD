@@ -1,20 +1,45 @@
 public interface IRadio{
-
-    public boolean getState(); //Retornamos el valor de si esta encendido o no
-
-    public void tooglePowerOffOn(); //Apagar y encender
-
-    public void toogleAMFM(); //FM o AM
-
-    public boolean getStateAMFM(); //Obtener si esta en FM o AM
-
-    public void nextFrequency(); //Siguiente frecuencia
-
-    public void previousFrequency();//frecuencia previa
-
-    public float getCurrentFrequency();//Obtener la frecuencia actual
-
-    public void setFavFrequency(int button); //Guarda frecuencia
-
-    public float getFavFrequency(int button); //Llama frecuencia
+    /**
+     * Retornamos el valor de si esta encendido o no
+     * @return boolean
+     */
+    public boolean getState();
+    /**
+     * Apagar y encender
+     */
+    public void tooglePowerOffOn();
+    /**
+     * FM o AM
+     */
+    public void toogleAMFM();
+    /**
+     * Obtener si esta en FM o AM
+     * @return boolean
+     */
+    public boolean getStateAMFM();
+    /**
+     * Siguiente frecuencia
+     */
+    public void nextFrequency();
+    /**
+     * frecuencia previa
+     */
+    public void previousFrequency();
+    
+    /**
+     * Obtener la frecuencia actual
+     * @return float
+     */
+    public float getCurrentFrequency();
+    /**
+     * Guardar frecuencia
+     * @param button
+     */
+    public void setFavFrequency(int button);
+    /**
+     * Llama frecuencia
+     * @param button
+     * @return
+     */
+    public float getFavFrequency(int button);
 }
